@@ -19,13 +19,22 @@ export default function SimpleBottomNavigation() {
     return <></>;
   }
   return (
-    <Box sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}>
+    <Box
+      sx={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        borderTop: "1px solid #bdbdbd",
+        zIndex: 2,
+      }}
+    >
       <BottomNavigation
         showLabels
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
-          navigate(valueMap[newValue], { replace: true });
+          navigate(valueMap[newValue]);
         }}
       >
         <BottomNavigationAction label="Home" icon={<HomeIcon />} />

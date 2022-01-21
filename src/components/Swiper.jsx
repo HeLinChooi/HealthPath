@@ -15,12 +15,12 @@ import Typography from "@mui/material/Typography";
 export default () => {
   return (
     <Swiper
-      spaceBetween={50}
-      slidesPerView={3}
+      spaceBetween={20}
+      slidesPerView={5}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >
-      {[0, 1, 2, 3].map(() => (
+      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
         <SwiperSlide>
           <Card variant="outlined">{card}</Card>
         </SwiperSlide>

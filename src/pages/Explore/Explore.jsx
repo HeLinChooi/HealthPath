@@ -5,7 +5,14 @@ import Swiper from "@Components/Swiper";
 const Explore = () => {
   return (
     <PageLayout>
-      <Swiper></Swiper>
+      <div style={{ padding: "30px" }}>
+        <h1>Clinics Nearby</h1>
+        <Swiper></Swiper>
+      </div>
+      <div style={{ padding: "30px" }}>
+        <h1>Online Pharmacies</h1>
+        <Swiper></Swiper>
+      </div>
     </PageLayout>
   );
 };

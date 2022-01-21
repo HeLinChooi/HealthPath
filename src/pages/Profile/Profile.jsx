@@ -4,6 +4,7 @@ import PageLayout from "@Components/PageLayout";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -12,11 +13,17 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+const Text = styled("span")(({ theme }) => ({
+  ...theme.typography.body2,
+  color: theme.palette.text.primary,
+  fontWeight: "bold",
+}));
+
 const ProfileGridItem = ({ name, value }) => {
   return (
     <Grid item xs={6} md={4} lg={2}>
       <Item>
-        {name}
+        <Text>{name}</Text>
         <br />
         {!!value === value ? (value ? "Yes" : "No") : value}
       </Item>
@@ -32,16 +39,18 @@ const Profile = () => {
     bloodType: "A",
     oku: true,
   };
-  console.log("Explore");
+
   return (
     <PageLayout>
-      <div>
+      <Stack sx={{ mb: 3 }} alignItems="center" spacing={1}>
         <Avatar
-          sx={{ mb: 2 }}
           alt="Remy Sharp"
           src="/static/images/avatar/1.jpg"
+          sx={{ width: 56, height: 56 }}
         />
-      </div>
+        <span>User 1</span>
+      </Stack>
+
       <Grid container spacing={2}>
         <ProfileGridItem name="Weight" value={profileInfo.weight} />
         <ProfileGridItem name="Height" value={profileInfo.height} />

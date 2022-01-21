@@ -6,7 +6,7 @@ const PageLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <div style={{ padding: "10px" }}>{children}</div>
+      <div style={{ padding: "10px", paddingBottom: "67px" }}>{children}</div>
       <BottomNavigation />
     </>
   );
