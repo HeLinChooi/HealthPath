@@ -5,6 +5,10 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
+import profilePicture from "@Assets/profilePicture.jpg";
+import "./Profile.scss";
+import { Divider } from "@mui/material";
+import { Box } from "@mui/system";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -13,15 +17,14 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const ProfileGridItem = ({ name, value }) => {
+const ProfileGridItem = ({ name, unit, value }) => {
   return (
     <Grid item xs={6} md={4} lg={2}>
       <Item>
         <span className="profileInfoKey">{name}</span>
         <br />
-        <span className="profileInfoValue">
-          {!!value === value ? (value ? "Yes" : "No") : value}
-        </span>
+        <span className="profileInfoValue">{value}</span>
+        <span className="profileInfoUnit">{unit}</span>
       </Item>
     </Grid>
   );
@@ -33,27 +36,63 @@ const Profile = () => {
     height: 152,
     bmi: 25.96,
     bloodType: "A",
-    oku: true,
+    status: "OKU",
   };
 
   return (
     <PageLayout>
-      <Stack sx={{ mb: 3 }} alignItems="center" spacing={1}>
-        <Avatar
-          alt="Remy Sharp"
-          src="/static/images/avatar/1.jpg"
-          sx={{ width: 56, height: 56 }}
-        />
-        <span>User 1</span>
-      </Stack>
+      <Box
+        sx={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <div>
+          <Stack sx={{ mt: 2, mb: 3 }} alignItems="center">
+            <Avatar
+              alt="Remy Sharp"
+              src={profilePicture}
+              sx={{ width: 56, height: 56, mb: 1 }}
+            />
+            <span>User 1</span>
+            <small>user1@gmail.com</small>
+          </Stack>
 
-      <Grid container spacing={2}>
-        <ProfileGridItem name="Weight" value={profileInfo.weight} />
-        <ProfileGridItem name="Height" value={profileInfo.height} />
-        <ProfileGridItem name="BMI" value={profileInfo.bmi} />
-        <ProfileGridItem name="Blood Type" value={profileInfo.bloodType} />
-        <ProfileGridItem name="OKU" value={profileInfo.oku} />
-      </Grid>
+          <Grid container spacing={2}>
+            <ProfileGridItem
+              name="Weight"
+              unit="kg"
+              value={profileInfo.weight}
+            />
+            <ProfileGridItem
+              name="Height"
+              unit="cm"
+              value={profileInfo.height}
+            />
+            <ProfileGridItem name="BMI" value={profileInfo.bmi} />
+            <ProfileGridItem name="Blood Type" value={profileInfo.bloodType} />
+            {/* <ProfileGridItem name="Status" value={profileInfo.status} /> */}
+            <Grid item xs={12} md={4} lg={2}>
+              <Item>
+                <span className="profileInfoKey">Status: </span>
+                <span className="profileInfoValue">{profileInfo.status}</span>
+              </Item>
+            </Grid>
+          </Grid>
+        </div>
+        <Stack
+          sx={{ mt: 3 }}
+          direction="row"
+          justifyContent="center"
+          divider={<Divider orientation="vertical" flexItem />}
+          spacing={2}
+        >
+          <small>Terms of Service</small>
+          <small>Privacy Policy</small>
+        </Stack>
+      </Box>
     </PageLayout>
   );
 };
