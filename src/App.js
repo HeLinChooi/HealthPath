@@ -1,6 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Home from "@Pages/Home.jsx";
+import Home from "@Pages/Home";
 import CssBaseline from "@mui/material/CssBaseline";
 
 function App() {

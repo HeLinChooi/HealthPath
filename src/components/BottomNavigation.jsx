@@ -3,8 +3,9 @@ import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import HomeIcon from "@mui/icons-material/Home";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+import ExploreIcon from "@mui/icons-material/Explore";
+import ScienceIcon from "@mui/icons-material/Science";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
@@ -19,8 +20,9 @@ export default function SimpleBottomNavigation() {
         }}
       >
         <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="Explore" icon={<ExploreIcon />} />
+        <BottomNavigationAction label="Research" icon={<ScienceIcon />} />
+        <BottomNavigationAction label="Profile" icon={<AccountCircleIcon />} />
       </BottomNavigation>
     </Box>
   );

@@ -4,11 +4,11 @@ import Header from "@Components/Header";
 
 const PageLayout = ({ children }) => {
   return (
-    <div>
+    <>
       <Header />
-      {children}
+      <div style={{ padding: "10px" }}>{children}</div>
       <BottomNavigation />
-    </div>
+    </>
   );
 };
 
