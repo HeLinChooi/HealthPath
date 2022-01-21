@@ -6,10 +6,18 @@ import HomeIcon from "@mui/icons-material/Home";
 import ExploreIcon from "@mui/icons-material/Explore";
 import ScienceIcon from "@mui/icons-material/Science";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useNavigate, useLocation } from "react-router";
 
+const valueMap = ["/", "/explore", "/research", "/profile"];
 export default function SimpleBottomNavigation() {
-  const [value, setValue] = React.useState(0);
+  const location = useLocation();
+  const pageIdx = valueMap.indexOf(location.pathname);
+  const [value, setValue] = React.useState(pageIdx);
+  const navigate = useNavigate();
 
+  if (value === -1) {
+    return <></>;
+  }
   return (
     <Box sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}>
       <BottomNavigation
@@ -17,6 +25,7 @@ export default function SimpleBottomNavigation() {
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
+          navigate(valueMap[newValue], { replace: true });
         }}
       >
         <BottomNavigationAction label="Home" icon={<HomeIcon />} />
