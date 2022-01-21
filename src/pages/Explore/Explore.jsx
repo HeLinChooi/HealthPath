@@ -1,6 +1,6 @@
 import React from "react";
 import PageLayout from "@Components/PageLayout";
-import Swiper from "@Components/Swiper";
+import Swiper from "@Components/swiper/Swiper";
 
 const Explore = () => {
   return (
