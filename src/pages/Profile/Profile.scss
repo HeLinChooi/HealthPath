@@ -1,8 +1,17 @@
-span {
-  .profileInfoKey {
-    color: #39a2db;
-  }
-  .profileInfoValue {
-    color: #053742;
-  }
+.h-100 {
+  height: 100%;
+}
+
+.profileInfoKey {
+  color: #39a2db;
+}
+.profileInfoValue {
+  color: #053742;
+  font-size: 16px;
+  font-weight: bold;
+}
+.profileInfoUnit {
+  color: #053742;
+  font-size: 12px;
+  margin-left: 3px;
 }
