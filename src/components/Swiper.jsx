@@ -11,6 +11,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import clinic from "@Assets/clinic.jpg";
 
 export default () => {
   return (
@@ -41,6 +42,7 @@ const bull = (
 const card = (
   <React.Fragment>
     <CardContent>
+      <img src={clinic} alt="clinic" />
       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
         Word of the Day
       </Typography>

@@ -13,19 +13,15 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const Text = styled("span")(({ theme }) => ({
-  ...theme.typography.body2,
-  color: theme.palette.text.primary,
-  fontWeight: "bold",
-}));
-
 const ProfileGridItem = ({ name, value }) => {
   return (
     <Grid item xs={6} md={4} lg={2}>
       <Item>
-        <Text>{name}</Text>
+        <span className="profileInfoKey">{name}</span>
         <br />
-        {!!value === value ? (value ? "Yes" : "No") : value}
+        <span className="profileInfoValue">
+          {!!value === value ? (value ? "Yes" : "No") : value}
+        </span>
       </Item>
     </Grid>
   );
