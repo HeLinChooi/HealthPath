@@ -14,6 +14,7 @@ import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import QrCode2Icon from "@mui/icons-material/QrCode2";
 import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
 import AddIcCallIcon from "@mui/icons-material/AddIcCall";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const TemporaryDrawer = () => {
   const [openDrawer, setOpenDrawer] = React.useState(false);
@@ -37,27 +38,32 @@ const TemporaryDrawer = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {["Notification", "Scan QR Code", "Presceening", "Emergency Call"].map(
-          (text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index === 0 && <NotificationsIcon />}
-                {index === 1 && <QrCode2Icon />}
-                {index === 2 && <MedicalServicesIcon />}
-                {index === 3 && <AddIcCallIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          )
-        )}
+        {[
+          "Notification",
+          "Scan QR Code",
+          "Presceening",
+          "My Cart",
+          "Emergency Call",
+        ].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index === 0 && <NotificationsIcon />}
+              {index === 1 && <QrCode2Icon />}
+              {index === 2 && <MedicalServicesIcon />}
+              {index === 3 && <ShoppingCartIcon />}
+              {index === 4 && <AddIcCallIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
       </List>
       <Divider />
       <List>
-        {["Setting", "Helpdesk"].map((text, index) => (
+        {["Helpdesk", "Settings"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index === 0 && <SettingsIcon />}
-              {index === 1 && <LiveHelpIcon />}
+              {index === 0 && <LiveHelpIcon />}
+              {index === 1 && <SettingsIcon />}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
