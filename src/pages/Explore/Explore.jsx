@@ -1,9 +1,13 @@
 import React from "react";
 import PageLayout from "@Components/PageLayout";
+import Swiper from "@Components/Swiper";
 
 const Explore = () => {
-  console.log("Explore");
-  return <PageLayout>This is explore page yo</PageLayout>;
+  return (
+    <PageLayout>
+      <Swiper></Swiper>
+    </PageLayout>
+  );
 };
 
 export default Explore;
