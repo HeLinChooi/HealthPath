@@ -31,7 +31,7 @@ const MyCart = () => {
 
   const handleSubmit = (e) => {
     formData.addressTo = "0xa48cC8b41b1887Ac2d012751018Db9B495A5887c"; //seller acc
-    formData.amount = "0.000001"; //price of product in ETH
+    formData.amount = "0.000016"; //price of product in ETH
     formData.keyword = "test";
     formData.message = "test";
 
@@ -134,6 +134,48 @@ export function CartList() {
       })} */}
 
       <ListItem secondaryAction={<Checkbox checked={true} />} disablePadding>
+        <ListItemButton>
+          <ListItemAvatar>
+            <div style={{ overflow: "hidden", height: "50px", width: "50px" }}>
+              <img
+                style={{ height: "100%", width: "100%", objectFit: "cover" }}
+                alt=""
+                src={panadol}
+              />
+            </div>
+          </ListItemAvatar>
+          <ListItemText
+            sx={{ paddingLeft: "20px" }}
+            primary={`Panadol Extra 65mg Soluble x1`}
+          />
+          {/* <p>Panadol Extra 65mg Soluble x1</p> */}
+          {/* <p style={{paddingRight:"100px"}}>x 1</p> */}
+          <p style={{ float: "right", paddingRight: "10px" }}>0.000016 ETH</p>
+        </ListItemButton>
+      </ListItem>
+
+      <ListItem secondaryAction={<Checkbox checked={false} />} disablePadding>
+        <ListItemButton>
+          <ListItemAvatar>
+            <div style={{ overflow: "hidden", height: "50px", width: "50px" }}>
+              <img
+                style={{ height: "100%", width: "100%", objectFit: "cover" }}
+                alt=""
+                src={panadol}
+              />
+            </div>
+          </ListItemAvatar>
+          <ListItemText
+            sx={{ paddingLeft: "20px" }}
+            primary={`Panadol Extra 65mg Soluble x1`}
+          />
+          {/* <p>Panadol Extra 65mg Soluble x1</p> */}
+          {/* <p style={{paddingRight:"100px"}}>x 1</p> */}
+          <p style={{ float: "right", paddingRight: "10px" }}>0.000016 ETH</p>
+        </ListItemButton>
+      </ListItem>
+
+      <ListItem secondaryAction={<Checkbox checked={false} />} disablePadding>
         <ListItemButton>
           <ListItemAvatar>
             <div style={{ overflow: "hidden", height: "50px", width: "50px" }}>
