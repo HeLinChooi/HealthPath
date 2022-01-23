@@ -34,15 +34,15 @@ export default () => {
   var slides = 5;
 
   if (isXl) {
-    slides = 5;
+    slides = 5.2;
   } else if (isLg) {
-    slides = 4;
+    slides = 4.2;
   } else if (isMd) {
-    slides = 3;
+    slides = 3.2;
   } else if (isSm) {
-    slides = 2;
+    slides = 2.2;
   } else if (isXs) {
-    slides = 1;
+    slides = 1.2;
   }
 
   return (
@@ -81,7 +81,7 @@ export function ActionAreaCard() {
     >
       <CardActionArea>
         <StyledChip label="closed" size="small"></StyledChip>
-        <CardMedia component="img" height="200" image={clinic} alt="clinic" />
+        <CardMedia component="img" height="150" image={clinic} alt="clinic" />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
             Wellness Clinic
