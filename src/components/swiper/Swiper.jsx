@@ -34,19 +34,14 @@ export default () => {
   var slides = 5;
 
   if (isXl) {
-    console.log("xl");
     slides = 5;
   } else if (isLg) {
-    console.log("lg");
     slides = 4;
   } else if (isMd) {
-    console.log("md");
     slides = 3;
   } else if (isSm) {
-    console.log("sm");
     slides = 2;
   } else if (isXs) {
-    console.log("sm");
     slides = 1;
   }
 
