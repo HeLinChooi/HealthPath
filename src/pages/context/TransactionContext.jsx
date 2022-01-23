@@ -80,6 +80,7 @@ export const TransactionsProvider = ({ children }) => {
 
       if (accounts.length) {
         setCurrentAccount(accounts[0]);
+        checkBalance();
 
         console.log(accounts[0]);
 
@@ -139,6 +140,7 @@ export const TransactionsProvider = ({ children }) => {
       });
 
       setCurrentAccount(accounts[0]);
+      checkBalance();
     } catch (error) {
       console.log(error);
 

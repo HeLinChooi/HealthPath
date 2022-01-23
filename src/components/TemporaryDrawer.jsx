@@ -15,6 +15,7 @@ import QrCode2Icon from "@mui/icons-material/QrCode2";
 import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
 import AddIcCallIcon from "@mui/icons-material/AddIcCall";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useNavigate } from "react-router";
 
 const TemporaryDrawer = () => {
   const [openDrawer, setOpenDrawer] = React.useState(false);
@@ -30,6 +31,22 @@ const TemporaryDrawer = () => {
     setOpenDrawer(open);
   };
 
+  const goTo = (text) => {
+    console.log("go to: " + text);
+    if (text == "My Cart") {
+      console.log("wallet");
+    }
+  };
+
+  const valueMap = [
+    "/notificatioon",
+    "/qr-code",
+    "/prescreening",
+    "/my-cart",
+    "/emergency-call",
+  ];
+  const navigate = useNavigate();
+
   const list = () => (
     <Box
       sx={{ width: 250 }}
@@ -41,11 +58,11 @@ const TemporaryDrawer = () => {
         {[
           "Notification",
           "Scan QR Code",
-          "Presceening",
+          "Prescreening",
           "My Cart",
           "Emergency Call",
         ].map((text, index) => (
-          <ListItem button key={text}>
+          <ListItem button key={text} onClick={() => navigate(valueMap[index])}>
             <ListItemIcon>
               {index === 0 && <NotificationsIcon />}
               {index === 1 && <QrCode2Icon />}
