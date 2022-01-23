@@ -128,7 +128,7 @@ export function ActionAreaCard1() {
             Opens 8:30AM Mon
           </Typography> */}
           <Typography variant="body2" color="text.secondary">
-            Jalan USJ 9/5s, Subang Business Centre
+            Jalan USJ 9/5s, SBC
           </Typography>
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
             <ButtonGroup disableElevation variant="contained">
@@ -284,7 +284,7 @@ export function ActionAreaCard5() {
             Opens 8:30AM Mon
           </Typography> */}
           <Typography variant="body2" color="text.secondary">
-            30, Jalan USJ 9/5n
+            30, Jalan USJ 9/5n, SBC
           </Typography>
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
             <ButtonGroup disableElevation variant="contained">

@@ -16,6 +16,8 @@ import Chip from "@mui/material/Chip";
 import Alert from "@mui/material/Alert";
 import { styled, alpha } from "@mui/material/styles";
 import panadol from "@Assets/panadol.jpg";
+import cough from "@Assets/cough.jpg";
+import plaster from "@Assets/hansaplast.jfif";
 import { display, height } from "@mui/system";
 
 const MyCart = () => {
@@ -161,17 +163,17 @@ export function CartList() {
               <img
                 style={{ height: "100%", width: "100%", objectFit: "cover" }}
                 alt=""
-                src={panadol}
+                src={cough}
               />
             </div>
           </ListItemAvatar>
           <ListItemText
             sx={{ paddingLeft: "20px" }}
-            primary={`Panadol Extra 65mg Soluble x1`}
+            primary={`Vicks Cough Syrup Dry  x1`}
           />
           {/* <p>Panadol Extra 65mg Soluble x1</p> */}
           {/* <p style={{paddingRight:"100px"}}>x 1</p> */}
-          <p style={{ float: "right", paddingRight: "10px" }}>0.000016 ETH</p>
+          <p style={{ float: "right", paddingRight: "10px" }}>0.000032 ETH</p>
         </ListItemButton>
       </ListItem>
 
@@ -182,17 +184,17 @@ export function CartList() {
               <img
                 style={{ height: "100%", width: "100%", objectFit: "cover" }}
                 alt=""
-                src={panadol}
+                src={plaster}
               />
             </div>
           </ListItemAvatar>
           <ListItemText
             sx={{ paddingLeft: "20px" }}
-            primary={`Panadol Extra 65mg Soluble x1`}
+            primary={`Hansaplast Kids Plaster x3`}
           />
           {/* <p>Panadol Extra 65mg Soluble x1</p> */}
           {/* <p style={{paddingRight:"100px"}}>x 1</p> */}
-          <p style={{ float: "right", paddingRight: "10px" }}>0.000016 ETH</p>
+          <p style={{ float: "right", paddingRight: "10px" }}>0.000042 ETH</p>
         </ListItemButton>
       </ListItem>
     </List>
