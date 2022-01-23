@@ -156,7 +156,8 @@ export default function PrimarySearchAppBar() {
               </Badge>
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}> */}
+          {/* <Box sx={{ display: { xs: "flex", md: "none" } }}> */}
+          {/* <Box sx={{ display: { xs: "flex", md: "flex" } }}> */}
           <TemporaryDrawer />
           {/* </Box> */}
         </Toolbar>

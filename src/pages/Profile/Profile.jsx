@@ -7,8 +7,9 @@ import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import profilePicture from "@Assets/profilePicture.jpg";
 import "./Profile.scss";
-import { Divider } from "@mui/material";
+import { Divider, useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
+import { useTheme } from "@emotion/react";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -39,6 +40,9 @@ const Profile = () => {
     status: "OKU",
   };
 
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
   return (
     <PageLayout>
       <Box
@@ -60,7 +64,7 @@ const Profile = () => {
             <small>user1@gmail.com</small>
           </Stack>
 
-          <Grid container spacing={2}>
+          <Grid container spacing={2} justifyContent="center">
             <ProfileGridItem
               name="Weight"
               unit="kg"
@@ -77,6 +81,7 @@ const Profile = () => {
             <Grid item xs={12} md={4} lg={2}>
               <Item>
                 <span className="profileInfoKey">Status: </span>
+                <br style={{ display: matches ? "block" : "none" }} />
                 <span className="profileInfoValue">{profileInfo.status}</span>
               </Item>
             </Grid>

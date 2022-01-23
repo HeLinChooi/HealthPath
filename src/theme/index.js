@@ -16,6 +16,7 @@ const theme = responsiveFontSizes(
     },
     typography: {
       fontFamily: ["Arial", "Roboto"].join(","),
+      ...typography,
     },
     zIndex: {
       appBar: 1200,

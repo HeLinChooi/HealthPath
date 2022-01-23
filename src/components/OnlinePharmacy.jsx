@@ -1,6 +1,5 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import "./Swiper.scss";
 
 // Import Swiper styles
 import "swiper/css";
@@ -15,14 +14,55 @@ import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
 import Chip from "@mui/material/Chip";
-import clinic from "@Assets/clinic.jpg";
+import panadol from "@Assets/panadol.jpg";
 import { styled, alpha } from "@mui/material/styles";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import DirectionsIcon from "@mui/icons-material/Directions";
 import CallIcon from "@mui/icons-material/Call";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Stack from "@mui/material/Stack";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+export function CustomizedSnackbars() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  return (
+    <Stack spacing={2} sx={{ width: "100%" }}>
+      <Button variant="outlined" onClick={handleClick}>
+        Open success snackbar
+      </Button>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          This is a success message!
+        </Alert>
+      </Snackbar>
+      <Alert severity="error">This is an error message!</Alert>
+      <Alert severity="warning">This is a warning message!</Alert>
+      <Alert severity="info">This is an information message!</Alert>
+      <Alert severity="success">This is a success message!</Alert>
+    </Stack>
+  );
+}
 
 export default () => {
   const theme = useTheme();
@@ -62,13 +102,15 @@ export default () => {
 };
 
 const StyledChip = styled(Chip)(() => ({
-  backgroundColor: "crimson",
+  backgroundColor: "darkOrange",
   color: "white",
   fontWeight: "bold",
   position: "absolute",
   top: "5px",
   right: "5px",
 }));
+
+const addToCart = () => {};
 
 export function ActionAreaCard() {
   return (
@@ -80,73 +122,28 @@ export function ActionAreaCard() {
       }}
     >
       <CardActionArea>
-        <StyledChip label="closed" size="small"></StyledChip>
-        <CardMedia component="img" height="150" image={clinic} alt="clinic" />
+        <StyledChip label="Newly Arrived" size="small"></StyledChip>
+        <CardMedia component="img" height="200" image={panadol} alt="panadol" />
+        <hr></hr>
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
-            Wellness Clinic
+            Panadol Extra 65mg Soluble
           </Typography>
           {/* <Typography variant="body2" color="text.secondary">
             Opens 8:30AM Mon
           </Typography> */}
           <Typography variant="body2" color="text.secondary">
-            Jalan USJ 9/5s · In QHC Medical Centre · 011-5110 6224
+            With a dual formulation that fights tough pains such as headaches,
+            dental pain5 and menstrual pain.
           </Typography>
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
-            <ButtonGroup disableElevation variant="contained">
-              <Button>
-                Get Directions &nbsp;
-                <DirectionsIcon />
-              </Button>
-              <Button>
-                <CallIcon />
-              </Button>
-            </ButtonGroup>
+            <Button variant="contained" onClick={addToCart()}>
+              Add to cart &nbsp;
+              <AddShoppingCartIcon />
+            </Button>
           </div>
         </CardContent>
       </CardActionArea>
     </Card>
   );
 }
-
-// const bull = (
-//   <Box
-//     component="span"
-//     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-//   >
-//     •
-//   </Box>
-// );
-
-// const card = (
-//   <React.Fragment className="card-container">
-//     <CardContent>
-//       <img className="img-container" src={clinic} alt="clinic" />
-//       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-//         Word of the Day
-//       </Typography>
-//       <Typography variant="h5" component="div">
-//         be{bull}nev{bull}o{bull}lent
-//       </Typography>
-//       <Typography sx={{ mb: 1.5 }} color="text.secondary">
-//         adjective
-//       </Typography>
-//       <Typography variant="body2">
-//         well meaning and kindly.
-//         <br />
-//         {'"a benevolent smile"'}
-//       </Typography>
-//     </CardContent>
-//     <CardActions>
-//       <Button size="small">Learn More</Button>
-//     </CardActions>
-//   </React.Fragment>
-// );
-
-// export function OutlinedCard() {
-//   return (
-//     <Box sx={{ minWidth: 275 }}>
-//       <Card variant="outlined">{card}</Card>
-//     </Box>
-//   );
-// }
