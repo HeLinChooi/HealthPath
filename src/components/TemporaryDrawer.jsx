@@ -17,7 +17,56 @@ import AddIcCallIcon from "@mui/icons-material/AddIcCall";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router";
 
+import { TransactionContext } from "../pages/context/TransactionContext";
+import { useContext } from "react";
+
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import Chip from "@mui/material/Chip";
+import { styled, alpha } from "@mui/material/styles";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+
 const TemporaryDrawer = () => {
+  const {
+    currentAccount,
+    connectWallet,
+    handleChange,
+    sendTransaction,
+    formData,
+    isLoading,
+    currentBalance,
+  } = useContext(TransactionContext);
+
+  const handleSubmit = (e) => {
+    formData.addressTo = "0xa48cC8b41b1887Ac2d012751018Db9B495A5887c"; //seller acc
+    formData.amount = "0.000001"; //price of product in ETH
+    formData.keyword = "test";
+    formData.message = "test";
+
+    console.log(formData);
+
+    e.preventDefault();
+
+    // if (!addressTo || !amount || !keyword || !message) return;
+    sendTransaction();
+  };
+
+  const StyledChip = styled(Chip)(() =>
+    currentAccount
+      ? {
+          backgroundColor: "limeGreen",
+          color: "white",
+          fontWeight: "bold",
+          float: "right",
+        }
+      : {
+          backgroundColor: "crimson",
+          color: "white",
+          fontWeight: "bold",
+          float: "right",
+        }
+  );
+
   const [openDrawer, setOpenDrawer] = React.useState(false);
 
   const toggleDrawer = (open) => (event) => {
@@ -47,6 +96,14 @@ const TemporaryDrawer = () => {
   ];
   const navigate = useNavigate();
 
+  const toTwoDigit = (number) => {
+    return number.toFixed(2);
+  };
+
+  const shortenString = (str) => {
+    return str.slice(0, 21) + "...";
+  };
+
   const list = () => (
     <Box
       sx={{ width: 250 }}
@@ -54,6 +111,40 @@ const TemporaryDrawer = () => {
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
+      <div style={{ padding: "10px" }}>
+        {/* <Card
+            sx={{ width: "100%", margin: "2px", postition: "relative"}}
+          > */}
+        <StyledChip
+          label={currentAccount ? "Connected" : "Disconnected"}
+          size="small"
+        ></StyledChip>
+        {/* <br/> */}
+        <p>Your balance:</p>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <h2 style={{ margin: "0" }}>
+            {currentBalance ? toTwoDigit(currentBalance) : "0.00"} ETH
+          </h2>
+        </div>
+        {!currentAccount && (
+          <Button
+            sx={{ width: "100%", marginTop: "15px" }}
+            size="small"
+            variant="outlined"
+            onClick={connectWallet}
+          >
+            Connect Wallet
+          </Button>
+        )}
+        <br />
+        {currentAccount && (
+          <div style={{ color: "lightGray", display: "flex" }}>
+            <AccountBalanceIcon size="small" /> &nbsp;&nbsp;
+            <span>{shortenString(currentAccount)}</span>
+          </div>
+        )}
+        {/* </Card> */}
+      </div>
       <List>
         {[
           "Notification",

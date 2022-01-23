@@ -76,7 +76,7 @@ const MyCart = () => {
           </div> */}
             <h1>My Wallet</h1>
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <h2>{currentBalance ? currentBalance : 0} ETH</h2>
+              <h2>{currentBalance ? currentBalance : "0.00"} ETH</h2>
             </div>
             {!currentAccount && (
               <Button
