@@ -13,6 +13,7 @@ import user2 from "@Assets/user2.jpg";
 import user3 from "@Assets/user3.jpg";
 import user4 from "@Assets/user4.jpg";
 import user5 from "@Assets/user5.jpg";
+import { useTheme } from "@mui/material/styles";
 
 function createData(userProfilePic, name, calories, fat, carbs, protein) {
   return { userProfilePic, name, calories, fat, carbs, protein };
@@ -27,6 +28,7 @@ const rows = [
 ];
 
 export default function BasicTable({ title }) {
+  const theme = useTheme();
   return (
     <>
       <Grid container justifyContent="space-between" sx={{ p: 1 }}>
@@ -49,7 +51,10 @@ export default function BasicTable({ title }) {
             {rows.map((row) => (
               <TableRow
                 key={row.name}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                sx={{
+                  "&:last-child td, &:last-child th": { border: 0 },
+                  "&:hover": { backgroundColor: theme.palette.grey["100"] },
+                }}
               >
                 <TableCell component="th" scope="row">
                   <img

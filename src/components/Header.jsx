@@ -21,7 +21,7 @@ const Search = styled("div")(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: theme.spacing(2),
-  marginRight: 0,
+  marginRight: theme.spacing(2),
   width: "40%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
@@ -126,7 +126,7 @@ export default function PrimarySearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ height: "56px" }}>
-        <Toolbar sx={{ pr: 0 }}>
+        <Toolbar>
           <Typography
             variant="h6"
             noWrap
@@ -145,7 +145,7 @@ export default function PrimarySearchAppBar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          {/* <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
@@ -156,9 +156,9 @@ export default function PrimarySearchAppBar() {
               </Badge>
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <TemporaryDrawer />
-          </Box>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}> */}
+          <TemporaryDrawer />
+          {/* </Box> */}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
