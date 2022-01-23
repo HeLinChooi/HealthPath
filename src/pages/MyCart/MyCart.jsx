@@ -13,7 +13,10 @@ import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import Card from "@mui/material/Card";
 import Chip from "@mui/material/Chip";
+import Alert from "@mui/material/Alert";
 import { styled, alpha } from "@mui/material/styles";
+import panadol from "@Assets/panadol.jpg";
+import { display, height } from "@mui/system";
 
 const MyCart = () => {
   const {
@@ -52,12 +55,21 @@ const MyCart = () => {
   return (
     <PageLayout>
       <div style={{ padding: "30px" }}>
+        {!currentAccount && (
+          <Alert sx={{ marginBottom: "20px" }} severity="error">
+            Please connect your Metamask wallet to make payment!
+          </Alert>
+        )}
         <Card sx={{ width: "100%", padding: "0 20px", paddingBottom: "20px" }}>
           <h1>My Cart</h1>
           <div>
             <CartList></CartList>
+            <div style={{ float: "right", paddingRight: "12px" }}>
+              <b>Total: </b>0.000016 ETH
+            </div>
+            <br />
             <Button
-              sx={{ float: "right" }}
+              sx={{ float: "right", marginTop: "20px" }}
               variant="outlined"
               disabled={!currentAccount}
               onClick={handleSubmit}
@@ -66,41 +78,6 @@ const MyCart = () => {
             </Button>
           </div>
         </Card>
-        <br />
-        <div style={{ paddingTop: "20px" }}>
-          <Card
-            sx={{ width: "100%", padding: "0 20px", paddingBottom: "20px" }}
-          >
-            {/* <div style={{postition: "relative"}}>
-            <StyledChip label="closed" size="small"></StyledChip>
-          </div> */}
-            <h1>My Wallet</h1>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <h2>{currentBalance ? currentBalance : "0.00"} ETH</h2>
-            </div>
-            {!currentAccount && (
-              <Button
-                sx={{ float: "right" }}
-                variant="outlined"
-                onClick={connectWallet}
-              >
-                Connect Wallet
-              </Button>
-            )}
-            <br />
-            {currentAccount && (
-              <div>
-                Connected acc: {currentAccount}
-                {/* <br />
-                balance: {currentBalance}
-                <br />
-                Buy sussy medicine from fintern_2 for 0.000001 ETH?
-                <br />
-                <button onClick={handleSubmit}>Buy</button> */}
-              </div>
-            )}
-          </Card>
-        </div>
       </div>
     </PageLayout>
   );
@@ -127,7 +104,7 @@ export function CartList() {
       dense
       sx={{ width: "100%", marginBottom: "20px", bgcolor: "background.paper" }}
     >
-      {[0, 1, 2, 3].map((value) => {
+      {/* {['16', '20', '13', '07'].map((value) => {
         const labelId = `checkbox-list-secondary-label-${value}`;
         return (
           <ListItem
@@ -150,10 +127,32 @@ export function CartList() {
                 />
               </ListItemAvatar>
               <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+              <p style={{float:"right", paddingRight:"50px"}}>0.000{value} ETH</p>
             </ListItemButton>
           </ListItem>
         );
-      })}
+      })} */}
+
+      <ListItem secondaryAction={<Checkbox checked={true} />} disablePadding>
+        <ListItemButton>
+          <ListItemAvatar>
+            <div style={{ overflow: "hidden", height: "50px", width: "50px" }}>
+              <img
+                style={{ height: "100%", width: "100%", objectFit: "cover" }}
+                alt=""
+                src={panadol}
+              />
+            </div>
+          </ListItemAvatar>
+          <ListItemText
+            sx={{ paddingLeft: "20px" }}
+            primary={`Panadol Extra 65mg Soluble x1`}
+          />
+          {/* <p>Panadol Extra 65mg Soluble x1</p> */}
+          {/* <p style={{paddingRight:"100px"}}>x 1</p> */}
+          <p style={{ float: "right", paddingRight: "10px" }}>0.000016 ETH</p>
+        </ListItemButton>
+      </ListItem>
     </List>
   );
 }
