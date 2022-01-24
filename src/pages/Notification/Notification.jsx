@@ -61,17 +61,8 @@ const Notification = () => {
   const md = `0rem 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%), 0rem 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%)`;
   const { notifications } = React.useContext(NotificationContext);
 
-  const [open, setOpen] = React.useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <PageLayout title={"Notification"}>
-      <CreateAccessNFTModal open={open} handleClose={handleClose} />
       <List
         sx={{
           width: "100%",
@@ -94,7 +85,6 @@ const Notification = () => {
                   cursor: "pointer",
                 },
               }}
-              onClick={handleClickOpen}
             >
               <ListItemIcon>
                 <FolderIcon />

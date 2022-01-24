@@ -5,24 +5,24 @@ export const NotificationContext = React.createContext();
 
 export const NotificationProvider = ({ children }) => {
   const mockNotification = [
-    {
-      creator: "Tung Shin Hospital",
-      time: "a few minutes ago",
-      title: "An NFT of new medical record was created!",
-      read: false,
-      url: "/",
-      information: {
-        imageUrl: "",
-        reportUrl: "",
-        blockchain: "Ethereum",
-        researcher: {
-          name: "Cancer",
-          time: "",
-          researchName: "",
-          researcher: "",
-        },
-      },
-    },
+    // {
+    //   creator: "Tung Shin Hospital",
+    //   time: "a few minutes ago",
+    //   title: "An NFT of new medical record was created!",
+    //   read: false,
+    //   url: "/",
+    //   information: {
+    //     imageUrl: "",
+    //     reportUrl: "",
+    //     blockchain: "Ethereum",
+    //     researcher: {
+    //       name: "Cancer",
+    //       time: "",
+    //       researchName: "",
+    //       researcher: "",
+    //     },
+    //   },
+    // },
     {
       creator: "Tung Shin Hospital",
       time: "a few minutes ago",

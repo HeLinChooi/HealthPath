@@ -14,11 +14,13 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useTheme } from "@emotion/react";
 import { NotificationContext } from "../context/NotificationContext";
+import CreateAccessNFTModal from "../../components/createAccessNFTModal/createAccessNFTModal";
 
-function ActionAreaCard({ research, setResearchers }) {
+function ActionAreaCard({ research, setResearchers, handleClickOpen }) {
   const { addNotification } = React.useContext(NotificationContext);
 
-  const apply = (id) => {
+  const handleApplication = (id) => {
+    handleClickOpen();
     setResearchers((prevState) => {
       const research = prevState.find((research) => research.id === id);
       research.applied = true;
@@ -63,7 +65,9 @@ function ActionAreaCard({ research, setResearchers }) {
             {research.applied ? (
               <Button disabled>Applied</Button>
             ) : (
-              <Button onClick={() => apply(research.id)}>Apply</Button>
+              <Button onClick={() => handleApplication(research.id)}>
+                Apply
+              </Button>
             )}
           </div>
         </CardContent>
@@ -78,19 +82,19 @@ const Research = () => {
     {
       id: 1,
       imageUrl:
-        "https://images.unsplash.com/photo-1602052577122-f73b9710adba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "https://images.unsplash.com/photo-1581091007718-0c50d599bfd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGxhYnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
       category: "Leukaemia",
-      name: `Molecular Profiling & Risk Treatment Stratification of Acute Promyelocytic Leukaemia`,
-      researcher: "Ermi Neiza binti Mohd Sahid",
+      name: `Induced leukaemia cells from peripheral blood B cells`,
+      researcher: "Maha Abdullah",
       applied: false,
     },
     {
       id: 2,
       imageUrl:
-        "https://images.unsplash.com/photo-1581091007718-0c50d599bfd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGxhYnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1602052577122-f73b9710adba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       category: "Leukaemia",
-      name: `Induced leukaemia cells from peripheral blood B cells`,
-      researcher: "Maha Abdullah",
+      name: `Molecular Profiling & Risk Treatment Stratification of Acute Promyelocytic Leukaemia`,
+      researcher: "Ermi Neiza binti Mohd Sahid",
       applied: false,
     },
     {
@@ -132,8 +136,17 @@ const Research = () => {
   } else if (isXs) {
     slides = 1.2;
   }
+
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <PageLayout title={"Research"}>
+      <CreateAccessNFTModal open={open} handleClose={handleClose} />
       <Typography variant="h3" sx={{ mb: 2 }}>
         Available Researches
       </Typography>
@@ -148,6 +161,7 @@ const Research = () => {
             <ActionAreaCard
               research={research}
               setResearchers={setResearchers}
+              handleClickOpen={handleClickOpen}
             ></ActionAreaCard>
           </SwiperSlide>
         ))}
