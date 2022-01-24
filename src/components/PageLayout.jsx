@@ -1,8 +1,16 @@
 import React from "react";
 import BottomNavigation from "@Components/BottomNavigation";
 import Header from "@Components/Header";
+import ClippedDrawer from "@Components/SideNav/ClippedDrawer";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 const PageLayout = ({ children }) => {
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up("sm"));
+  if (isMdUp) {
+    return <ClippedDrawer>{children}</ClippedDrawer>;
+  }
   return (
     <>
       <Header />
