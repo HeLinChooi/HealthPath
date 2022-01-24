@@ -5,7 +5,7 @@ import OnlinePharmacy from "@Components/OnlinePharmacy";
 
 const Explore = () => {
   return (
-    <PageLayout>
+    <PageLayout title={"Explore"}>
       <div style={{ padding: "30px" }}>
         <h1>Clinics Nearby</h1>
         <Swiper></Swiper>

@@ -133,7 +133,7 @@ const Research = () => {
     slides = 1.2;
   }
   return (
-    <PageLayout>
+    <PageLayout title={"Research"}>
       <div style={{ padding: "30px" }}>
         <Typography variant="h2">Available Researches</Typography>
         <Swiper

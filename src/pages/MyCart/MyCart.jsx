@@ -55,7 +55,7 @@ const MyCart = () => {
   }));
 
   return (
-    <PageLayout>
+    <PageLayout title={"My Cart"}>
       <div style={{ padding: "30px" }}>
         {!currentAccount && (
           <Alert sx={{ marginBottom: "20px" }} severity="error">

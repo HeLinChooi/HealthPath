@@ -29,7 +29,7 @@ const NFTCreation = () => {
   };
 
   return (
-    <PageLayout>
+    <PageLayout title={"Create Medical Record NFT"}>
       <Grid container spacing={2}>
         {!currentAccount && (
           <Grid item xs={12} sx={{ m: 2, mb: 0 }}>
@@ -38,16 +38,7 @@ const NFTCreation = () => {
             </Alert>
           </Grid>
         )}
-        <Grid item xs={12} sx={{ m: 2, mb: 0 }}>
-          <Typography
-            variant="h3"
-            fontWeight="bold"
-            textTransform="capitalize"
-            sx={{ pt: 1 }}
-          >
-            {"Create Medical Record NFT"}
-          </Typography>
-        </Grid>
+
         <Grid item xs={12} md={6}>
           <Form onSubmit={onSubmit} />
         </Grid>
