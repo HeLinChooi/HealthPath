@@ -13,8 +13,26 @@ import {
 } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useTheme } from "@emotion/react";
+import { NotificationContext } from "../context/NotificationContext";
 
-function ActionAreaCard({ research }) {
+function ActionAreaCard({ research, setResearchers }) {
+  const { addNotification } = React.useContext(NotificationContext);
+
+  const apply = (id) => {
+    setResearchers((prevState) => {
+      const research = prevState.find((research) => research.id === id);
+      research.applied = true;
+      return JSON.parse(JSON.stringify(prevState));
+    });
+    addNotification({
+      creator: research.researcher,
+      time: "a minute ago",
+      title: `You have applied to join "${research.name}" research!`,
+      read: false,
+      url: "",
+    });
+  };
+
   return (
     <Card
       sx={{
@@ -42,7 +60,11 @@ function ActionAreaCard({ research }) {
           </Typography>
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
             <Button>View</Button>
-            <Button>Apply</Button>
+            {research.applied ? (
+              <Button disabled>Applied</Button>
+            ) : (
+              <Button onClick={() => apply(research.id)}>Apply</Button>
+            )}
           </div>
         </CardContent>
       </CardActionArea>
@@ -54,34 +76,43 @@ const Research = () => {
   const md = `0rem 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%), 0rem 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%)`;
   const mockResearches = [
     {
-      imageUrl:
-        "https://images.unsplash.com/photo-1518152006812-edab29b069ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      category: "Cancer",
-      name: `Cancer Therapeutics Program - Development of Metal Based Complexes as Anti-Cancer Agents`,
-      researcher: "",
-    },
-    {
+      id: 1,
       imageUrl:
         "https://images.unsplash.com/photo-1602052577122-f73b9710adba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       category: "Leukaemia",
       name: `Molecular Profiling & Risk Treatment Stratification of Acute Promyelocytic Leukaemia`,
       researcher: "Ermi Neiza binti Mohd Sahid",
+      applied: false,
     },
     {
-      imageUrl:
-        "https://images.unsplash.com/photo-1562789233-495f52b583dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
-      category: "Cancer",
-      name: `Identification of tumor cell-intrinsic immune modulators in pancreatic cancer cells`,
-      researcher: "Gan Li Lian",
-    },
-    {
+      id: 2,
       imageUrl:
         "https://images.unsplash.com/photo-1581091007718-0c50d599bfd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGxhYnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
       category: "Leukaemia",
       name: `Induced leukaemia cells from peripheral blood B cells`,
       researcher: "Maha Abdullah",
+      applied: false,
+    },
+    {
+      id: 3,
+      imageUrl:
+        "https://images.unsplash.com/photo-1562789233-495f52b583dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+      category: "Cancer",
+      name: `Identification of tumor cell-intrinsic immune modulators in pancreatic cancer cells`,
+      researcher: "Gan Li Lian",
+      applied: false,
+    },
+    {
+      id: 4,
+      imageUrl:
+        "https://images.unsplash.com/photo-1518152006812-edab29b069ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      category: "Cancer",
+      name: `Cancer Therapeutics Program - Development of Metal Based Complexes as Anti-Cancer Agents`,
+      researcher: "",
+      applied: false,
     },
   ];
+  const [researches, setResearchers] = React.useState(mockResearches);
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.up("xs"));
   const isSm = useMediaQuery(theme.breakpoints.up("sm"));
@@ -111,9 +142,12 @@ const Research = () => {
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >
-          {mockResearches.map((research) => (
+          {researches.map((research) => (
             <SwiperSlide>
-              <ActionAreaCard research={research}></ActionAreaCard>
+              <ActionAreaCard
+                research={research}
+                setResearchers={setResearchers}
+              ></ActionAreaCard>
             </SwiperSlide>
           ))}
         </Swiper>
