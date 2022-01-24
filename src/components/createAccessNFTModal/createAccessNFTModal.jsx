@@ -82,7 +82,9 @@ export default function CreateAccessNFTModal({
 
     console.log(formData);
     // if (!addressTo || !amount || !keyword || !message) return;
-    sendTransaction();
+    sendTransaction()
+      .then(() => handleClose())
+      .catch(() => handleClose());
   };
 
   return (
