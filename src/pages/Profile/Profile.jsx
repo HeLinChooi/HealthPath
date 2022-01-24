@@ -44,7 +44,7 @@ const Profile = () => {
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
-    <PageLayout title={"Profile"}>
+    <PageLayout>
       <Box
         sx={{
           height: "100%",
