@@ -82,11 +82,7 @@ export default function CreateAccessNFTModal({
 
     console.log(formData);
     // if (!addressTo || !amount || !keyword || !message) return;
-    sendTransaction()
-      .then(() => {
-        navigate("/");
-      })
-      .catch(() => navigate("/"));
+    sendTransaction();
   };
 
   return (
@@ -103,13 +99,12 @@ export default function CreateAccessNFTModal({
           id="customized-dialog-title"
           onClose={handleClose}
         >
-          Mint and Send Your Medical Report
+          Mint Medical Report Access Token
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <Alert severity="info" sx={{ mb: 2 }}>
-            Your application to join the research has been accepted! Now you can
-            mint and send your access NFT to the researcher for your medical
-            report access.
+            You need to mint an NFT for the researcher to access your medical
+            record.
           </Alert>
           <Grid container direction="row" spacing={2}>
             <Grid item xs={12} md={4} sx={{ height: "100%" }}>
@@ -163,7 +158,7 @@ export default function CreateAccessNFTModal({
             Cancel
           </Button>
           <Button autoFocus onClick={handleSubmit}>
-            Mint & Send
+            Mint & Apply
           </Button>
         </DialogActions>
       </BootstrapDialog>

@@ -1,9 +1,11 @@
 const today = new Date();
 const yesterday = new Date(today);
 const about30daysBeforeYesterday = new Date(today);
+const about60daysBeforeYesterday = new Date(today);
 
 yesterday.setDate(yesterday.getDate() - 1);
 about30daysBeforeYesterday.setDate(yesterday.getDate() - 30);
+about60daysBeforeYesterday.setDate(yesterday.getDate() - 60);
 
 const nftList = [
   {
@@ -25,6 +27,13 @@ const nftList = [
     date: about30daysBeforeYesterday,
     reason: "For usual medical check-up",
     accessorName: "Summer Lim",
+    redirect: true,
+  },
+  {
+    title: "Leukaemia Report",
+    date: about60daysBeforeYesterday,
+    reason: "Treatment",
+    accessorName: "Vincent Lim",
     redirect: true,
   },
 ];
