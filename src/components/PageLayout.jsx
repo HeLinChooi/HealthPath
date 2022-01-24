@@ -12,7 +12,7 @@ const PageTitle = ({ title }) => {
   if (!title) return <></>;
   return (
     <>
-      <Box sx={{ mb: 1, ml: { xs: 1, sm: 1 } }}>
+      <Box sx={{ mb: 1, ml: { xs: 0 } }}>
         <Typography
           variant="h2"
           fontWeight="bold"

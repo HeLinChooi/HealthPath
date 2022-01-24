@@ -56,7 +56,7 @@ const MyCart = () => {
 
   return (
     <PageLayout title={"My Cart"}>
-      <div style={{ padding: "30px" }}>
+      <div>
         {!currentAccount && (
           <Alert sx={{ marginBottom: "20px" }} severity="error">
             Please connect your Metamask wallet to make payment!

@@ -84,12 +84,12 @@ const SideBarList = ({ toggleDrawer = () => {} }) => {
       icon: <TokenIcon />,
     },
     {
-      link: "/",
+      link: null,
       label: "Scan QR Code",
       icon: <QrCode2Icon />,
     },
     {
-      link: "/",
+      link: null,
       label: "Prescreening",
       icon: <MedicalServicesIcon />,
     },
@@ -99,7 +99,7 @@ const SideBarList = ({ toggleDrawer = () => {} }) => {
       icon: <ShoppingCartIcon />,
     },
     {
-      link: "/emergency-call",
+      link: null,
       label: "Emergency Call",
       icon: <AddIcCallIcon />,
     },
@@ -160,7 +160,10 @@ const SideBarList = ({ toggleDrawer = () => {} }) => {
             <ListItem
               button
               key={navItem.label}
-              onClick={() => navigate(navItem.link)}
+              onClick={() => {
+                if (!navItem.link) return;
+                navigate(navItem.link);
+              }}
             >
               <ListItemIcon>{navItem.icon}</ListItemIcon>
               <ListItemText primary={navItem.label} />

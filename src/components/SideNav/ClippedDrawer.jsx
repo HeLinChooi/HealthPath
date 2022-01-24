@@ -144,7 +144,10 @@ export default function ClippedDrawer({ children }) {
         <Toolbar />
         <SideBarList />
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, p: 3, maxWidth: "calc(100% - 240px)" }}
+      >
         <Toolbar />
         {children}
       </Box>

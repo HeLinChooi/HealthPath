@@ -15,9 +15,9 @@ export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(pageIdx);
   const navigate = useNavigate();
 
-  if (value === -1) {
-    return <></>;
-  }
+  // if (value === -1) {
+  //   return <></>;
+  // }
   return (
     <Box
       sx={{

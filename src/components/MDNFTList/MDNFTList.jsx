@@ -17,7 +17,7 @@ const MDNFTList = ({ title, list = [], icon }) => {
         container
         justifyContent="space-between"
         alignItems="center"
-        sx={{ p: 1 }}
+        sx={{ p: 1, pl: 0 }}
       >
         <Box sx={{ display: "flex", alignItems: "center", fontWeight: "bold" }}>
           <Icon>{icon}</Icon>
