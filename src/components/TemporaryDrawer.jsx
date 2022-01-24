@@ -191,11 +191,7 @@ const TemporaryDrawer = () => {
         >
           <MenuIcon />
         </IconButton>
-        <Drawer
-          anchor={"right"}
-          open={openDrawer}
-          onClose={toggleDrawer(false)}
-        >
+        <Drawer anchor={"left"} open={openDrawer} onClose={toggleDrawer(false)}>
           {list()}
         </Drawer>
       </React.Fragment>

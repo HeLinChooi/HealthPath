@@ -19,7 +19,7 @@ const MDNFTList = ({ title, list = [], icon }) => {
         alignItems="center"
         sx={{ p: 1 }}
       >
-        <Box sx={{ display: "flex", fontWeight: "bold" }}>
+        <Box sx={{ display: "flex", alignItems: "center", fontWeight: "bold" }}>
           <Icon>{icon}</Icon>
           <Typography variant="h6" sx={{ pl: 1 }}>
             {title}
