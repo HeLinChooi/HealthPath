@@ -95,7 +95,6 @@ export function ActionAreaCard() {
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
             <ButtonGroup disableElevation variant="contained">
               <Button>
-                Get Directions &nbsp;
                 <DirectionsIcon />
               </Button>
               <Button>

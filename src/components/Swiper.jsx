@@ -133,7 +133,6 @@ export function ActionAreaCard1() {
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
             <ButtonGroup disableElevation variant="contained">
               <Button>
-                Get Directions &nbsp;
                 <DirectionsIcon />
               </Button>
               <Button>
@@ -172,7 +171,6 @@ export function ActionAreaCard2() {
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
             <ButtonGroup disableElevation variant="contained">
               <Button>
-                Get Directions &nbsp;
                 <DirectionsIcon />
               </Button>
               <Button>
@@ -211,7 +209,6 @@ export function ActionAreaCard3() {
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
             <ButtonGroup disableElevation variant="contained">
               <Button>
-                Get Directions &nbsp;
                 <DirectionsIcon />
               </Button>
               <Button>
@@ -250,7 +247,6 @@ export function ActionAreaCard4() {
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
             <ButtonGroup disableElevation variant="contained">
               <Button>
-                Get Directions &nbsp;
                 <DirectionsIcon />
               </Button>
               <Button>
@@ -289,7 +285,6 @@ export function ActionAreaCard5() {
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
             <ButtonGroup disableElevation variant="contained">
               <Button>
-                Get Directions &nbsp;
                 <DirectionsIcon />
               </Button>
               <Button>
