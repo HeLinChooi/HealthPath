@@ -14,7 +14,11 @@ import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
 import Chip from "@mui/material/Chip";
-import clinic from "@Assets/clinic.jpg";
+import clinic1 from "@Assets/clinic1.jpg";
+import clinic2 from "@Assets/clinic2.jpg";
+import clinic3 from "@Assets/clinic3.jpg";
+import clinic4 from "@Assets/clinic4.png";
+import clinic5 from "@Assets/clinic5.jpg";
 import { styled, alpha } from "@mui/material/styles";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import DirectionsIcon from "@mui/icons-material/Directions";
@@ -51,11 +55,37 @@ export default () => {
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >
-      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-        <SwiperSlide>
-          <ActionAreaCard></ActionAreaCard>
-        </SwiperSlide>
-      ))}
+      <SwiperSlide>
+        <ActionAreaCard1></ActionAreaCard1>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard2></ActionAreaCard2>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard3></ActionAreaCard3>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard4></ActionAreaCard4>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard5></ActionAreaCard5>
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <ActionAreaCard1></ActionAreaCard1>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard2></ActionAreaCard2>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard3></ActionAreaCard3>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard4></ActionAreaCard4>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard5></ActionAreaCard5>
+      </SwiperSlide>
     </Swiper>
   );
 };
@@ -69,7 +99,16 @@ const StyledChip = styled(Chip)(() => ({
   right: "5px",
 }));
 
-export function ActionAreaCard() {
+const StyledChipGreen = styled(Chip)(() => ({
+  backgroundColor: "limeGreen",
+  color: "white",
+  fontWeight: "bold",
+  position: "absolute",
+  top: "5px",
+  right: "5px",
+}));
+
+export function ActionAreaCard1() {
   return (
     <Card
       sx={{
@@ -79,8 +118,8 @@ export function ActionAreaCard() {
       }}
     >
       <CardActionArea>
-        <StyledChip label="closed" size="small"></StyledChip>
-        <CardMedia component="img" height="150" image={clinic} alt="clinic" />
+        <StyledChipGreen label="open" size="small"></StyledChipGreen>
+        <CardMedia component="img" height="150" image={clinic1} alt="clinic" />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
             Wellness Clinic
@@ -89,7 +128,7 @@ export function ActionAreaCard() {
             Opens 8:30AM Mon
           </Typography> */}
           <Typography variant="body2" color="text.secondary">
-            Jalan USJ 9/5s · In QHC Medical Centre · 011-5110 6224
+            Jalan USJ 9/5s, SBC
           </Typography>
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
             <ButtonGroup disableElevation variant="contained">
@@ -108,44 +147,158 @@ export function ActionAreaCard() {
   );
 }
 
-// const bull = (
-//   <Box
-//     component="span"
-//     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-//   >
-//     •
-//   </Box>
-// );
+export function ActionAreaCard2() {
+  return (
+    <Card
+      sx={{
+        maxWidth: 345,
+        transition: "0.3s",
+        "&:hover": { transform: "scale(1.02)" },
+      }}
+    >
+      <CardActionArea>
+        <StyledChipGreen label="open" size="small"></StyledChipGreen>
+        <CardMedia component="img" height="150" image={clinic2} alt="clinic" />
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
+            Klinik Wanita Metro SS15
+          </Typography>
+          {/* <Typography variant="body2" color="text.secondary">
+            Opens 8:30AM Mon
+          </Typography> */}
+          <Typography variant="body2" color="text.secondary">
+            36, Jalan SS 15/4d, Ss 15
+          </Typography>
+          <div style={{ padding: "10px 0 10px 0", float: "right" }}>
+            <ButtonGroup disableElevation variant="contained">
+              <Button>
+                Get Directions &nbsp;
+                <DirectionsIcon />
+              </Button>
+              <Button>
+                <CallIcon />
+              </Button>
+            </ButtonGroup>
+          </div>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+}
 
-// const card = (
-//   <React.Fragment className="card-container">
-//     <CardContent>
-//       <img className="img-container" src={clinic} alt="clinic" />
-//       <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-//         Word of the Day
-//       </Typography>
-//       <Typography variant="h5" component="div">
-//         be{bull}nev{bull}o{bull}lent
-//       </Typography>
-//       <Typography sx={{ mb: 1.5 }} color="text.secondary">
-//         adjective
-//       </Typography>
-//       <Typography variant="body2">
-//         well meaning and kindly.
-//         <br />
-//         {'"a benevolent smile"'}
-//       </Typography>
-//     </CardContent>
-//     <CardActions>
-//       <Button size="small">Learn More</Button>
-//     </CardActions>
-//   </React.Fragment>
-// );
+export function ActionAreaCard3() {
+  return (
+    <Card
+      sx={{
+        maxWidth: 345,
+        transition: "0.3s",
+        "&:hover": { transform: "scale(1.02)" },
+      }}
+    >
+      <CardActionArea>
+        <StyledChip label="closed" size="small"></StyledChip>
+        <CardMedia component="img" height="150" image={clinic3} alt="clinic" />
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
+            Klinik Central
+          </Typography>
+          {/* <Typography variant="body2" color="text.secondary">
+            Opens 8:30AM Mon
+          </Typography> */}
+          <Typography variant="body2" color="text.secondary">
+            No. 11-G, Jalan SS 15/8a, Ss 15
+          </Typography>
+          <div style={{ padding: "10px 0 10px 0", float: "right" }}>
+            <ButtonGroup disableElevation variant="contained">
+              <Button>
+                Get Directions &nbsp;
+                <DirectionsIcon />
+              </Button>
+              <Button>
+                <CallIcon />
+              </Button>
+            </ButtonGroup>
+          </div>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+}
 
-// export function OutlinedCard() {
-//   return (
-//     <Box sx={{ minWidth: 275 }}>
-//       <Card variant="outlined">{card}</Card>
-//     </Box>
-//   );
-// }
+export function ActionAreaCard4() {
+  return (
+    <Card
+      sx={{
+        maxWidth: 345,
+        transition: "0.3s",
+        "&:hover": { transform: "scale(1.02)" },
+      }}
+    >
+      <CardActionArea>
+        <StyledChipGreen label="open" size="small"></StyledChipGreen>
+        <CardMedia component="img" height="150" image={clinic4} alt="clinic" />
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
+            Klinik Sri Subang
+          </Typography>
+          {/* <Typography variant="body2" color="text.secondary">
+            Opens 8:30AM Mon
+          </Typography> */}
+          <Typography variant="body2" color="text.secondary">
+            9, Jalan PJS 7/22, Bandar Sunway
+          </Typography>
+          <div style={{ padding: "10px 0 10px 0", float: "right" }}>
+            <ButtonGroup disableElevation variant="contained">
+              <Button>
+                Get Directions &nbsp;
+                <DirectionsIcon />
+              </Button>
+              <Button>
+                <CallIcon />
+              </Button>
+            </ButtonGroup>
+          </div>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+}
+
+export function ActionAreaCard5() {
+  return (
+    <Card
+      sx={{
+        maxWidth: 345,
+        transition: "0.3s",
+        "&:hover": { transform: "scale(1.02)" },
+      }}
+    >
+      <CardActionArea>
+        <StyledChipGreen label="open" size="small"></StyledChipGreen>
+        <CardMedia component="img" height="150" image={clinic5} alt="clinic" />
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
+            Klinik Medijaya USJ9
+          </Typography>
+          {/* <Typography variant="body2" color="text.secondary">
+            Opens 8:30AM Mon
+          </Typography> */}
+          <Typography variant="body2" color="text.secondary">
+            30, Jalan USJ 9/5n, SBC
+          </Typography>
+          <div style={{ padding: "10px 0 10px 0", float: "right" }}>
+            <ButtonGroup disableElevation variant="contained">
+              <Button>
+                Get Directions &nbsp;
+                <DirectionsIcon />
+              </Button>
+              <Button>
+                <CallIcon />
+              </Button>
+            </ButtonGroup>
+          </div>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+}

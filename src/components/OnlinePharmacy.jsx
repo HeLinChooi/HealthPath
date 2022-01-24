@@ -15,6 +15,10 @@ import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
 import Chip from "@mui/material/Chip";
 import panadol from "@Assets/panadol.jpg";
+import cotton from "@Assets/cotton.jpg";
+import cough from "@Assets/cough.jpg";
+import plaster from "@Assets/hansaplast.jfif";
+import koolfever from "@Assets/koolfever.jpg";
 import { styled, alpha } from "@mui/material/styles";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import DirectionsIcon from "@mui/icons-material/Directions";
@@ -92,11 +96,36 @@ export default () => {
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >
-      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-        <SwiperSlide>
-          <ActionAreaCard></ActionAreaCard>
-        </SwiperSlide>
-      ))}
+      <SwiperSlide>
+        <ActionAreaCard1></ActionAreaCard1>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard2></ActionAreaCard2>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard3></ActionAreaCard3>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard4></ActionAreaCard4>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard5></ActionAreaCard5>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard1></ActionAreaCard1>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard2></ActionAreaCard2>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard3></ActionAreaCard3>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard4></ActionAreaCard4>
+      </SwiperSlide>
+      <SwiperSlide>
+        <ActionAreaCard5></ActionAreaCard5>
+      </SwiperSlide>
     </Swiper>
   );
 };
@@ -112,7 +141,7 @@ const StyledChip = styled(Chip)(() => ({
 
 const addToCart = () => {};
 
-export function ActionAreaCard() {
+export function ActionAreaCard1() {
   return (
     <Card
       sx={{
@@ -134,7 +163,156 @@ export function ActionAreaCard() {
           </Typography> */}
           <Typography variant="body2" color="text.secondary">
             With a dual formulation that fights tough pains such as headaches,
-            dental pain5 and menstrual pain.
+            dental pain and menstrual pain
+          </Typography>
+          <div style={{ padding: "10px 0 10px 0", float: "right" }}>
+            <Button variant="contained" onClick={addToCart()}>
+              Add to cart &nbsp;
+              <AddShoppingCartIcon />
+            </Button>
+          </div>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+}
+
+export function ActionAreaCard2() {
+  return (
+    <Card
+      sx={{
+        maxWidth: 345,
+        transition: "0.3s",
+        "&:hover": { transform: "scale(1.02)" },
+      }}
+    >
+      <CardActionArea>
+        <StyledChip label="Newly Arrived" size="small"></StyledChip>
+        <CardMedia component="img" height="200" image={cotton} alt="panadol" />
+        <hr></hr>
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
+            Honeywell Sterile Cotton Balls
+          </Typography>
+          {/* <Typography variant="body2" color="text.secondary">
+            Opens 8:30AM Mon
+          </Typography> */}
+          <Typography variant="body2" color="text.secondary">
+            Soft, absorbent 1" cotton balls of high-grade fiber remain strong
+            when saturated. Ideal for cleaning wounds
+          </Typography>
+          <div style={{ padding: "10px 0 10px 0", float: "right" }}>
+            <Button variant="contained" onClick={addToCart()}>
+              Add to cart &nbsp;
+              <AddShoppingCartIcon />
+            </Button>
+          </div>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+}
+
+export function ActionAreaCard3() {
+  return (
+    <Card
+      sx={{
+        maxWidth: 345,
+        transition: "0.3s",
+        "&:hover": { transform: "scale(1.02)" },
+      }}
+    >
+      <CardActionArea>
+        <StyledChip label="Newly Arrived" size="small"></StyledChip>
+        <CardMedia component="img" height="200" image={cough} alt="panadol" />
+        <hr></hr>
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
+            Vicks Cough Syrup Dry
+          </Typography>
+          {/* <Typography variant="body2" color="text.secondary">
+            Opens 8:30AM Mon
+          </Typography> */}
+          <Typography variant="body2" color="text.secondary">
+            Vicks Cough Syrup Dry + Chesty is formulated to provide 2 in 1
+            relief. It helps to relieve both: Dry Cough Chesty Cough
+          </Typography>
+          <div style={{ padding: "10px 0 10px 0", float: "right" }}>
+            <Button variant="contained" onClick={addToCart()}>
+              Add to cart &nbsp;
+              <AddShoppingCartIcon />
+            </Button>
+          </div>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+}
+
+export function ActionAreaCard4() {
+  return (
+    <Card
+      sx={{
+        maxWidth: 345,
+        transition: "0.3s",
+        "&:hover": { transform: "scale(1.02)" },
+      }}
+    >
+      <CardActionArea>
+        <StyledChip label="Newly Arrived" size="small"></StyledChip>
+        <CardMedia
+          component="img"
+          height="200"
+          image={koolfever}
+          alt="panadol"
+        />
+        <hr></hr>
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
+            KoolFever Cooling Pad
+          </Typography>
+          {/* <Typography variant="body2" color="text.secondary">
+            Opens 8:30AM Mon
+          </Typography> */}
+          <Typography variant="body2" color="text.secondary">
+            Ready to use by any family member that has fever. Chill the PILLOW
+            in the freezer with -20°C for overnight
+          </Typography>
+          <div style={{ padding: "10px 0 10px 0", float: "right" }}>
+            <Button variant="contained" onClick={addToCart()}>
+              Add to cart &nbsp;
+              <AddShoppingCartIcon />
+            </Button>
+          </div>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+}
+
+export function ActionAreaCard5() {
+  return (
+    <Card
+      sx={{
+        maxWidth: 345,
+        transition: "0.3s",
+        "&:hover": { transform: "scale(1.02)" },
+      }}
+    >
+      <CardActionArea>
+        <StyledChip label="Newly Arrived" size="small"></StyledChip>
+        <CardMedia component="img" height="200" image={plaster} alt="panadol" />
+        <hr></hr>
+        <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
+            Hansaplast Kids Plaster
+          </Typography>
+          {/* <Typography variant="body2" color="text.secondary">
+            Opens 8:30AM Mon
+          </Typography> */}
+          <Typography variant="body2" color="text.secondary">
+            Scrapes, cuts and grazes will be forgotten in a flurry of snowflakes
+            with these cool plasters featuring their favorite characters
           </Typography>
           <div style={{ padding: "10px 0 10px 0", float: "right" }}>
             <Button variant="contained" onClick={addToCart()}>

@@ -16,6 +16,8 @@ import Chip from "@mui/material/Chip";
 import Alert from "@mui/material/Alert";
 import { styled, alpha } from "@mui/material/styles";
 import panadol from "@Assets/panadol.jpg";
+import cough from "@Assets/cough.jpg";
+import plaster from "@Assets/hansaplast.jfif";
 import { display, height } from "@mui/system";
 
 const MyCart = () => {
@@ -31,7 +33,7 @@ const MyCart = () => {
 
   const handleSubmit = (e) => {
     formData.addressTo = "0xa48cC8b41b1887Ac2d012751018Db9B495A5887c"; //seller acc
-    formData.amount = "0.000001"; //price of product in ETH
+    formData.amount = "0.000016"; //price of product in ETH
     formData.keyword = "test";
     formData.message = "test";
 
@@ -151,6 +153,48 @@ export function CartList() {
           {/* <p>Panadol Extra 65mg Soluble x1</p> */}
           {/* <p style={{paddingRight:"100px"}}>x 1</p> */}
           <p style={{ float: "right", paddingRight: "10px" }}>0.000016 ETH</p>
+        </ListItemButton>
+      </ListItem>
+
+      <ListItem secondaryAction={<Checkbox checked={false} />} disablePadding>
+        <ListItemButton>
+          <ListItemAvatar>
+            <div style={{ overflow: "hidden", height: "50px", width: "50px" }}>
+              <img
+                style={{ height: "100%", width: "100%", objectFit: "cover" }}
+                alt=""
+                src={cough}
+              />
+            </div>
+          </ListItemAvatar>
+          <ListItemText
+            sx={{ paddingLeft: "20px" }}
+            primary={`Vicks Cough Syrup Dry  x1`}
+          />
+          {/* <p>Panadol Extra 65mg Soluble x1</p> */}
+          {/* <p style={{paddingRight:"100px"}}>x 1</p> */}
+          <p style={{ float: "right", paddingRight: "10px" }}>0.000032 ETH</p>
+        </ListItemButton>
+      </ListItem>
+
+      <ListItem secondaryAction={<Checkbox checked={false} />} disablePadding>
+        <ListItemButton>
+          <ListItemAvatar>
+            <div style={{ overflow: "hidden", height: "50px", width: "50px" }}>
+              <img
+                style={{ height: "100%", width: "100%", objectFit: "cover" }}
+                alt=""
+                src={plaster}
+              />
+            </div>
+          </ListItemAvatar>
+          <ListItemText
+            sx={{ paddingLeft: "20px" }}
+            primary={`Hansaplast Kids Plaster x3`}
+          />
+          {/* <p>Panadol Extra 65mg Soluble x1</p> */}
+          {/* <p style={{paddingRight:"100px"}}>x 1</p> */}
+          <p style={{ float: "right", paddingRight: "10px" }}>0.000042 ETH</p>
         </ListItemButton>
       </ListItem>
     </List>

@@ -88,7 +88,7 @@ const TemporaryDrawer = () => {
   };
 
   const valueMap = [
-    "/notificatioon",
+    "/notification",
     "/qr-code",
     "/prescreening",
     "/my-cart",
