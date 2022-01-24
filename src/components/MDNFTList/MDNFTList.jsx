@@ -9,7 +9,7 @@ import Icon from "@mui/material/Icon";
 import { Link, useNavigate } from "react-router-dom";
 import md from "@Mock/boxShadow";
 
-const MDNFTList = ({ title, list = [], icon }) => {
+const MDNFTList = ({ title, list = [], icon, noViewMore = false }) => {
   const navigate = useNavigate();
   return (
     <>
@@ -25,9 +25,13 @@ const MDNFTList = ({ title, list = [], icon }) => {
             {title}
           </Typography>
         </Box>
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <Typography variant="body2">View More</Typography>
-        </Link>
+        {!noViewMore && (
+          <>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <Typography variant="body2">View More</Typography>
+            </Link>
+          </>
+        )}
       </Grid>
       <List
         sx={{
