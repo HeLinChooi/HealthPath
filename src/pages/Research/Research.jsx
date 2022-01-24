@@ -134,33 +134,34 @@ const Research = () => {
   }
   return (
     <PageLayout>
-      <div style={{ padding: "30px" }}>
-        <Typography variant="h2">Available Researches</Typography>
-        <Swiper
-          spaceBetween={20}
-          slidesPerView={slides}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-        >
-          {researches.map((research) => (
-            <SwiperSlide>
-              <ActionAreaCard
-                research={research}
-                setResearchers={setResearchers}
-              ></ActionAreaCard>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <List
-          sx={{
-            width: "100%",
-            bgcolor: "background.paper",
-            borderRadius: "0.75rem",
-            boxShadow: md,
-            padding: 0,
-          }}
-        >
-          {/* {list.map((item, idx) => {
+      <Typography variant="h3" sx={{ mb: 2 }}>
+        Available Researches
+      </Typography>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={slides}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        {researches.map((research) => (
+          <SwiperSlide>
+            <ActionAreaCard
+              research={research}
+              setResearchers={setResearchers}
+            ></ActionAreaCard>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <List
+        sx={{
+          width: "100%",
+          bgcolor: "background.paper",
+          borderRadius: "0.75rem",
+          boxShadow: md,
+          padding: 0,
+        }}
+      >
+        {/* {list.map((item, idx) => {
           const { title, date, reason, accessorName } = item;
           return (
             <>
@@ -174,8 +175,7 @@ const Research = () => {
             </>
           );
         })} */}
-        </List>
-      </div>
+      </List>
       <div style={{ height: "500px" }}></div>
     </PageLayout>
   );

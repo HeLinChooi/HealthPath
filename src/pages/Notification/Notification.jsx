@@ -72,61 +72,56 @@ const Notification = () => {
   return (
     <PageLayout>
       <CreateAccessNFTModal open={open} handleClose={handleClose} />
-      <div style={{ padding: "30px" }}>
-        <Typography variant="h2" sx={{ mb: 2 }}>
-          Notification
-        </Typography>
-        <List
-          sx={{
-            width: "100%",
-            bgcolor: "background.paper",
-            borderRadius: "0.75rem",
-            boxShadow: md,
-            padding: 0,
-          }}
-        >
-          {notifications.map((notification) => (
-            <>
-              <ListItem
-                sx={{
-                  py: 2,
-                  backgroundColor: notification.read
-                    ? theme.palette.grey["100"]
-                    : "white",
-                  "&:hover": {
-                    backgroundColor: theme.palette.grey["100"],
-                    cursor: "pointer",
-                  },
-                }}
-                onClick={handleClickOpen}
-              >
-                <ListItemIcon>
-                  <FolderIcon />
-                </ListItemIcon>
-                <Box sx={{ flexGrow: 1 }}>
-                  <Grid
-                    container
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="flex-start"
-                  >
-                    <Grid item xs={10}>
-                      <Typography variant="caption" sx={{ color: "gray" }}>
-                        {notification.creator} • {notification.time}
-                      </Typography>
-                      <Typography>{notification.title}</Typography>
-                    </Grid>
-                    <Grid item align="right" xs={2}>
-                      <MenuButtons></MenuButtons>
-                    </Grid>
+      <List
+        sx={{
+          width: "100%",
+          bgcolor: "background.paper",
+          borderRadius: "0.75rem",
+          boxShadow: md,
+          padding: 0,
+        }}
+      >
+        {notifications.map((notification) => (
+          <>
+            <ListItem
+              sx={{
+                py: 2,
+                backgroundColor: notification.read
+                  ? theme.palette.grey["100"]
+                  : "white",
+                "&:hover": {
+                  backgroundColor: theme.palette.grey["100"],
+                  cursor: "pointer",
+                },
+              }}
+              onClick={handleClickOpen}
+            >
+              <ListItemIcon>
+                <FolderIcon />
+              </ListItemIcon>
+              <Box sx={{ flexGrow: 1 }}>
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="flex-start"
+                >
+                  <Grid item xs={10}>
+                    <Typography variant="caption" sx={{ color: "gray" }}>
+                      {notification.creator} • {notification.time}
+                    </Typography>
+                    <Typography>{notification.title}</Typography>
                   </Grid>
-                </Box>
-              </ListItem>
-              <Divider />
-            </>
-          ))}
-        </List>
-      </div>
+                  <Grid item align="right" xs={2}>
+                    <MenuButtons></MenuButtons>
+                  </Grid>
+                </Grid>
+              </Box>
+            </ListItem>
+            <Divider />
+          </>
+        ))}
+      </List>
     </PageLayout>
   );
 };
