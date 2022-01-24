@@ -131,7 +131,7 @@ export default function Header() {
         <Toolbar>
           <TemporaryDrawer />
           <Typography
-            variant="h6"
+            variant="h4"
             noWrap
             component="div"
             sx={{ display: { xs: "block" }, pl: 2, cursor: "pointer" }}

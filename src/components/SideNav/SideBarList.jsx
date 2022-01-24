@@ -12,6 +12,7 @@ import QrCode2Icon from "@mui/icons-material/QrCode2";
 import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
 import AddIcCallIcon from "@mui/icons-material/AddIcCall";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import TokenIcon from "@mui/icons-material/Token";
 import { useNavigate } from "react-router";
 
 import { TransactionContext } from "@Pages/context/TransactionContext";
@@ -32,6 +33,7 @@ const SideBarList = ({ toggleDrawer = () => {} }) => {
     isLoading,
     currentBalance,
   } = useContext(TransactionContext);
+  const navigate = useNavigate();
 
   const StyledChip = styled(Chip)(() =>
     currentAccount
@@ -70,14 +72,38 @@ const SideBarList = ({ toggleDrawer = () => {} }) => {
     }
   };
 
-  const valueMap = [
-    "/notification",
-    "/qr-code",
-    "/prescreening",
-    "/my-cart",
-    "/emergency-call",
+  const navigations = [
+    {
+      link: "/notification",
+      label: "Notification",
+      icon: <NotificationsIcon />,
+    },
+    {
+      link: "/nft-creation",
+      label: "Create NFT",
+      icon: <TokenIcon />,
+    },
+    {
+      link: "/",
+      label: "Scan QR Code",
+      icon: <QrCode2Icon />,
+    },
+    {
+      link: "/",
+      label: "Prescreening",
+      icon: <MedicalServicesIcon />,
+    },
+    {
+      link: "/my-cart",
+      label: "My Cart",
+      icon: <ShoppingCartIcon />,
+    },
+    {
+      link: "/emergency-call",
+      label: "Emergency Call",
+      icon: <AddIcCallIcon />,
+    },
   ];
-  const navigate = useNavigate();
 
   const toTwoDigit = (number) => {
     return number.toFixed(2);
@@ -130,26 +156,14 @@ const SideBarList = ({ toggleDrawer = () => {} }) => {
           {/* </Card> */}
         </div>
         <List>
-          {[
-            "Notification",
-            "Scan QR Code",
-            "Prescreening",
-            "My Cart",
-            "Emergency Call",
-          ].map((text, index) => (
+          {navigations.map((navItem, index) => (
             <ListItem
               button
-              key={text}
-              onClick={() => navigate(valueMap[index])}
+              key={navItem.label}
+              onClick={() => navigate(navItem.link)}
             >
-              <ListItemIcon>
-                {index === 0 && <NotificationsIcon />}
-                {index === 1 && <QrCode2Icon />}
-                {index === 2 && <MedicalServicesIcon />}
-                {index === 3 && <ShoppingCartIcon />}
-                {index === 4 && <AddIcCallIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemIcon>{navItem.icon}</ListItemIcon>
+              <ListItemText primary={navItem.label} />
             </ListItem>
           ))}
         </List>

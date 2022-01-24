@@ -10,9 +10,9 @@ import md from "@Mock/boxShadow";
 const info = {
   "First Symptoms": "Runny nose, sore throat",
   Diagnosis: "Common cold",
-  "Has the patient previously suffered from the same complaints": "Yes",
+  // "Has the patient previously suffered from the same complaints": "Yes",
   "Brief description of treatment already given": "medicine precribed",
-  "Reason for referral for specialist treatment": "-",
+  // "Reason for referral for specialist treatment": "-",
 };
 
 const InfoCard = (props) => {
