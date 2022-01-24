@@ -8,7 +8,7 @@ import nftList from "@Mock/nftList";
 
 const Home = () => {
   return (
-    <PageLayout>
+    <PageLayout title={"Home"}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <MDNFTList

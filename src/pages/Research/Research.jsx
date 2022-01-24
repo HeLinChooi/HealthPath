@@ -133,7 +133,7 @@ const Research = () => {
     slides = 1.2;
   }
   return (
-    <PageLayout>
+    <PageLayout title={"Research"}>
       <Typography variant="h3" sx={{ mb: 2 }}>
         Available Researches
       </Typography>

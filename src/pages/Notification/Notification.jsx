@@ -70,7 +70,7 @@ const Notification = () => {
   };
 
   return (
-    <PageLayout>
+    <PageLayout title={"Notification"}>
       <CreateAccessNFTModal open={open} handleClose={handleClose} />
       <List
         sx={{

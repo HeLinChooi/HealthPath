@@ -5,9 +5,9 @@ import Typography from "@mui/material/Typography";
 import InfoCard from "@Components/InfoCard";
 import MDBreadcrumbs from "@Components/MDBreadcrumbs";
 
-const Home = () => {
+const NFT = () => {
   return (
-    <PageLayout>
+    <PageLayout title={"NFT"}>
       <Grid container spacing={2}>
         <Grid item xs={12} sx={{ m: 2, mb: 0 }}>
           <MDBreadcrumbs
@@ -31,4 +31,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default NFT;

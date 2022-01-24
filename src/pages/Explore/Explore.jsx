@@ -6,7 +6,7 @@ import { Divider, Typography } from "@mui/material";
 
 const Explore = () => {
   return (
-    <PageLayout>
+    <PageLayout title={"Explore"}>
       <div style={{ paddingBottom: "25px" }}>
         <Typography variant="h3" sx={{ mb: 2 }}>
           Clinics Nearby

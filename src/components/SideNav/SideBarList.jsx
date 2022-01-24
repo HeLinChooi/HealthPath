@@ -110,7 +110,7 @@ const SideBarList = ({ toggleDrawer = () => {} }) => {
   };
 
   const shortenString = (str) => {
-    return str.slice(0, 21) + "...";
+    return str.slice(0, 18) + "...";
   };
 
   return (
