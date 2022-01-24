@@ -7,16 +7,20 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import { TransactionsProvider } from "./pages/context/TransactionContext";
+import { NotificationProvider } from "./pages/context/NotificationContext";
 
 ReactDOM.render(
   <TransactionsProvider>
-    <React.StrictMode>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <App />
-        </Router>
-      </ThemeProvider>
-    </React.StrictMode>
+    <NotificationProvider>
+      <React.StrictMode>
+        <ThemeProvider theme={theme}>
+          <Router>
+            <App />
+          </Router>
+        </ThemeProvider>
+      </React.StrictMode>
+    </NotificationProvider>
+    ,
   </TransactionsProvider>,
   document.getElementById("root")
 );

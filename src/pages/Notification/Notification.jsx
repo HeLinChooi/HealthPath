@@ -7,7 +7,6 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText,
   Menu,
   MenuItem,
   Paper,
@@ -18,6 +17,8 @@ import FolderIcon from "@mui/icons-material/Folder";
 import Box from "@mui/material/Box";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import theme from "../../theme";
+import { NotificationContext } from "../context/NotificationContext";
+import CreateAccessNFTModal from "../../components/createAccessNFTModal/createAccessNFTModal";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -58,28 +59,19 @@ const MenuButtons = () => {
 
 const Notification = () => {
   const md = `0rem 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%), 0rem 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%)`;
-  const mockNotification = [
-    {
-      creator: "Tung Shin Hospital",
-      time: "a few minutes ago",
-      title: "An NFT of new medical record was created!",
-      read: false,
-    },
-    {
-      creator: "Tung Shin Hospital",
-      time: "a month ago",
-      title: "An NFT of new medical record was created!",
-      read: true,
-    },
-    {
-      creator: "Tung Shin Hospital",
-      time: "two months ago",
-      title: "An NFT of new medical record was created!",
-      read: true,
-    },
-  ];
+  const { notifications } = React.useContext(NotificationContext);
+
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <PageLayout>
+      <CreateAccessNFTModal open={open} handleClose={handleClose} />
       <div style={{ padding: "30px" }}>
         <Typography variant="h2" sx={{ mb: 2 }}>
           Notification
@@ -93,7 +85,7 @@ const Notification = () => {
             padding: 0,
           }}
         >
-          {mockNotification.map((notification) => (
+          {notifications.map((notification) => (
             <>
               <ListItem
                 sx={{
@@ -106,6 +98,7 @@ const Notification = () => {
                     cursor: "pointer",
                   },
                 }}
+                onClick={handleClickOpen}
               >
                 <ListItemIcon>
                   <FolderIcon />
@@ -117,7 +110,7 @@ const Notification = () => {
                     justifyContent="space-between"
                     alignItems="flex-start"
                   >
-                    <Grid item xs={10} md={8}>
+                    <Grid item xs={10}>
                       <Typography variant="caption" sx={{ color: "gray" }}>
                         {notification.creator} • {notification.time}
                       </Typography>
