@@ -11,18 +11,21 @@ const nftAccessLog = [
     date: new Date(),
     reason: "For emergency",
     accessorName: "Summer Lim",
+    redirect: false,
   },
   {
-    title: "Regular Visit NFT",
+    title: "Regular Health Check NFT",
     date: yesterday,
     reason: "Review before visit",
-    accessorName: "Summer Lim",
+    accessorName: "Aaron Khor",
+    redirect: false,
   },
   {
     title: "Recovery NFT",
     date: dayBeforeYesterday,
     reason: "For regular bookkeeping",
     accessorName: "Summer Lim",
+    redirect: false,
   },
 ];
 export default nftAccessLog;

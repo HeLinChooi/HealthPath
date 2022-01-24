@@ -12,6 +12,7 @@ import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import TemporaryDrawer from "./TemporaryDrawer";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -21,7 +22,7 @@ const Search = styled("div")(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: theme.spacing(2),
-  marginRight: theme.spacing(2),
+  // marginRight: theme.spacing(2),
   width: "40%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
@@ -54,6 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -127,11 +129,13 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ height: "56px" }}>
         <Toolbar>
+          <TemporaryDrawer />
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "block" } }}
+            sx={{ display: { xs: "block" }, pl: 2, cursor: "pointer" }}
+            onClick={() => navigate("/")}
           >
             HealthPath
           </Typography>
@@ -156,9 +160,6 @@ export default function PrimarySearchAppBar() {
               </Badge>
             </IconButton>
           </Box>
-          {/* <Box sx={{ display: { xs: "flex", md: "none" } }}> */}
-          {/* <Box sx={{ display: { xs: "flex", md: "flex" } }}> */}
-          <TemporaryDrawer />
           {/* </Box> */}
         </Toolbar>
       </AppBar>

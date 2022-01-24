@@ -3,11 +3,14 @@ import MDListItem from "./MDListItem";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { Link } from "react-router-dom";
-const md = `0rem 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%), 0rem 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%)`;
+import Icon from "@mui/material/Icon";
+import { Link, useNavigate } from "react-router-dom";
+import md from "@Mock/boxShadow";
 
-const MDNFTList = ({ title, list = [1, 2, 3] }) => {
+const MDNFTList = ({ title, list = [], icon }) => {
+  const navigate = useNavigate();
   return (
     <>
       <Grid
@@ -16,7 +19,12 @@ const MDNFTList = ({ title, list = [1, 2, 3] }) => {
         alignItems="center"
         sx={{ p: 1 }}
       >
-        <Grid sx={{ fontWeight: "bold" }}>{title}</Grid>
+        <Box sx={{ display: "flex", fontWeight: "bold" }}>
+          <Icon>{icon}</Icon>
+          <Typography variant="h6" sx={{ pl: 1 }}>
+            {title}
+          </Typography>
+        </Box>
         <Link to="/" style={{ textDecoration: "none" }}>
           <Typography variant="body2">View More</Typography>
         </Link>
@@ -31,17 +39,20 @@ const MDNFTList = ({ title, list = [1, 2, 3] }) => {
         }}
       >
         {list.map((item, idx) => {
-          const { title, date, reason, accessorName } = item;
+          const { title, date, reason, accessorName, redirect } = item;
+          const onClick = redirect ? () => navigate("/nft") : () => {};
           return (
-            <>
+            <React.Fragment key={idx}>
               <MDListItem
                 title={title}
                 date={date}
                 reason={reason}
                 accessorName={accessorName}
+                onClick={onClick}
+                redirect={redirect}
               />
               {idx !== list.length - 1 && <Divider />}
-            </>
+            </React.Fragment>
           );
         })}
       </List>

@@ -10,6 +10,8 @@ const PageLayout = ({ children }) => {
         style={{
           padding: "10px",
           paddingBottom: "67px",
+          // margin: "10px",
+          // marginBottom: "67px",
           height: "calc(100% - 56px)",
         }}
       >

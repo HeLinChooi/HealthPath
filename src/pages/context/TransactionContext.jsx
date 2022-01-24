@@ -126,8 +126,8 @@ export const TransactionsProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
-
-      throw new Error("No ethereum object");
+      console.error("No ethereum object");
+      // throw new Error("No ethereum object");
     }
   };
 

@@ -15,7 +15,7 @@ const theme = responsiveFontSizes(
       contentWidth: 1350,
     },
     typography: {
-      fontFamily: ["Arial", "Roboto"].join(","),
+      fontFamily: ["Roboto", "Arial"].join(","),
       ...typography,
     },
     zIndex: {

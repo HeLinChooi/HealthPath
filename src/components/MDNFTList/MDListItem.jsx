@@ -7,7 +7,13 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/material/styles";
 
-const MDListItem = ({ title, date, reason, accessorName }) => {
+const MDListItem = ({
+  title,
+  date,
+  reason,
+  accessorName,
+  onClick = () => {},
+}) => {
   const theme = useTheme();
   return (
     <>
@@ -19,6 +25,7 @@ const MDListItem = ({ title, date, reason, accessorName }) => {
             cursor: "pointer",
           },
         }}
+        onClick={onClick}
       >
         <ListItemAvatar>
           <Avatar alt={accessorName} src="/static/images/avatar/1.jpg" />
