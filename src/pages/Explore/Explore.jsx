@@ -11,7 +11,7 @@ const Explore = () => {
         <Typography variant="h3" sx={{ mb: 2 }}>
           Clinics Nearby
         </Typography>
-        {/* <Swiper></Swiper> */}
+        <Swiper></Swiper>
       </div>
       <div style={{ paddingTop: "25px", paddingBottom: "25px" }}>
         <Typography variant="h3" sx={{ mb: 2 }}>
