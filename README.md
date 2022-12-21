@@ -4,7 +4,7 @@ HealthPath utilizes NFT and IPFS technologies to ensure a complete, secured and 
 
 Submission for [NUS FinTech Hackathon 2022](https://nusfintechmonth.comp.nus.edu.sg/)
 
-### [Link to prototype](https://health-path.herokuapp.com/)
+### [Link to prototype](https://health-path.vercel.app/)
 
 <img src="dashboard.jpg" alt="first screenshot" width="600"/>
 
