@@ -58,19 +58,19 @@ const NFTCreation = () => {
     try {
       const web3Modal = new Web3Modal();
       const connection = await web3Modal.connect();
-      const provider = new ethers.providers.Web3Provider(connection);
-      const signer = provider.getSigner();
+      const provider = new ethers.BrowserProvider(connection);
+      const signer = await provider.getSigner();
 
       /* next, create the item */
       let contract = new ethers.Contract(nftaddress, nftaddressABI, signer);
       let transaction = await contract.createToken(url);
       let tx = await transaction.wait();
       console.log("tx", tx);
-      let event = tx.events[0];
+      let event = tx.logs[0];
       let value = event.args[2];
-      let tokenId = value.toNumber();
+      let tokenId = Number(value);
 
-      const price = ethers.utils.parseUnits(formInput.price, "ether");
+      const price = ethers.parseUnits(formInput.price, "ether");
 
       /* then list the item for sale on the marketplace */
       contract = new ethers.Contract(nftmarketaddress, nftmarketABI, signer);
